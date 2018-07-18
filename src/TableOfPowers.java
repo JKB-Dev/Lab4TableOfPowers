@@ -6,24 +6,25 @@ public class TableOfPowers {
 		Scanner scan = new Scanner(System.in);
 		String cont = "y";
 		System.out.println("Learn your squares and cubes!");
-		System.out.println("Enter an integer: ");
-		int userNum = scan.nextInt();
-		
 
 		while (cont.equalsIgnoreCase("y")) {
 
-			System.out.println("Number	Squared	Cubed");
-			System.out.println("======	======	======");
+			System.out.println("Enter an integer: ");
+			int userNum = scan.nextInt();
+			scan.nextLine();
+
+			System.out.printf("%-10s %-10s %-10s \n", "Number", "Squared", "Cubed");
+			System.out.printf("%-10s %-10s %-10s \n", "=======", "=======", "=======");
 
 			for (int i = 1; i <= userNum; i++) {
-				System.out.print(i);
 				double userDouble = i;
-				System.out.print("	" + (int) Math.pow(userDouble, 2));
-				System.out.println("	" + (int) Math.pow(userDouble, 3));
+				int cube = (int) Math.pow(userDouble, 2);
+				int square = (int) Math.pow(userDouble, 3);
+				System.out.printf("%-10d %-10d %-10d", i, cube, square);
+				System.out.println();
 			}
 
-			System.out.println("Continue? (y/n): ");
-			scan.nextLine();
+			System.out.println("Do you want to continue? (y/n): ");
 			cont = scan.nextLine();
 		}
 		scan.close();
